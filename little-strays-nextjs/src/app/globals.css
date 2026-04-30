@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", "Avenir Next", "Segoe UI", sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fbf6ee;
+  color: #25211d;
+}
+
+::selection {
+  background: #b66f54;
+  color: #fbf6ee;
+}
+
+.editorial-kicker {
+  @apply text-xs font-semibold uppercase tracking-[0.22em] text-clay;
+}
+
+.focus-ring {
+  @apply outline-none ring-offset-2 ring-offset-paper transition focus-visible:ring-2 focus-visible:ring-clay;
+}

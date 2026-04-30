@@ -1,0 +1,50 @@
+import type { Metadata } from "next";
+import { PageIntro } from "@/components/PageIntro";
+
+export const metadata: Metadata = {
+  title: "About"
+};
+
+export default function AboutPage() {
+  return (
+    <>
+      <PageIntro kicker="About" title="A pet shop with a quieter sense of luxury.">
+        <p>
+          Little Strays was imagined for people who see pet care as part of the
+          atmosphere of home. We source pieces that are useful, tactile, and
+          gentle on the eye.
+        </p>
+      </PageIntro>
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="overflow-hidden rounded-sm bg-oat shadow-soft">
+          <img
+            src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80"
+            alt="A small dog wrapped in a soft blanket"
+            className="aspect-[4/5] h-full w-full object-cover"
+          />
+        </div>
+        <div className="grid content-center gap-8">
+          <div>
+            <p className="editorial-kicker">Point of view</p>
+            <h2 className="mt-3 font-serif text-5xl leading-none">
+              Useful first, beautiful always.
+            </h2>
+          </div>
+          <div className="grid gap-6 text-base leading-8 text-ink/68">
+            <p>
+              Our mock collection begins with the things pets actually use:
+              bowls, beds, blankets, walk sets, toys, and pouches. Each piece is
+              selected as if it will live in the front room, not vanish into a
+              closet.
+            </p>
+            <p>
+              As the storefront grows, this page can expand into founder notes,
+              sourcing standards, rescue partnerships, maker profiles, and
+              product care guides.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
