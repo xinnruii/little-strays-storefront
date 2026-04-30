@@ -24,4 +24,6 @@ Open `http://localhost:3000`.
 
 ## Notes
 
-Product data is mocked in `src/lib/products.ts`. Checkout, payment, inventory, and account flows are intentionally not included yet.
+Product content is mocked in `src/content/mock-products.ts`. That file includes notes for non-engineers on updating product names, prices, descriptions, and image paths.
+
+Checkout, payment, inventory, and account flows are intentionally not included yet.
