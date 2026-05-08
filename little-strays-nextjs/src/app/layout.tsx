@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { UserRound } from "lucide-react";
 import { CartLink } from "@/components/cart/CartLink";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -73,7 +74,16 @@ export default function RootLayout({
                     className="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
                   />
                 </Link>
-                <CartLink />
+                <div className="flex items-center gap-2 justify-self-end">
+                  <Link
+                    href="/account"
+                    className="focus-ring grid h-10 w-10 place-items-center rounded-full border border-clay/15 text-clay transition hover:border-clay/35 hover:bg-linen"
+                    aria-label="Account"
+                  >
+                    <UserRound size={18} strokeWidth={1.8} />
+                  </Link>
+                  <CartLink />
+                </div>
                 <nav
                   className="col-span-3 flex items-center justify-center gap-1 overflow-x-auto text-sm text-muted lg:hidden"
                   aria-label="Primary navigation"
