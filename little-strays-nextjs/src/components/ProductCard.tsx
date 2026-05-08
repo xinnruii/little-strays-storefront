@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { formatPrice, type Product } from "@/lib/products";
 
 export function ProductCard({
@@ -14,32 +15,47 @@ export function ProductCard({
   squareImage?: boolean;
 }) {
   return (
-    <Link
-      href={`/products/${product.slug}`}
-      className="focus-ring group block overflow-hidden rounded-sm bg-paper shadow-soft"
-    >
-      <div
-        className={`${
-          squareImage ? "aspect-square" : "aspect-[4/5]"
-        } overflow-hidden bg-oat`}
+    <article className="group grid overflow-hidden rounded-sm bg-paper shadow-soft">
+      <Link
+        href={`/products/${product.slug}`}
+        className="focus-ring block rounded-sm"
       >
-        <img
-          src={imageSrc ?? product.image}
-          alt={product.name}
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-        />
-      </div>
-      <div className={`${minimal ? "gap-2 p-4 sm:p-5" : "gap-4 p-5"} grid`}>
+        <div
+          className={`${
+            squareImage ? "aspect-square" : "aspect-[4/5]"
+          } overflow-hidden bg-oat`}
+        >
+          <img
+            src={imageSrc ?? product.image}
+            alt={product.name}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          />
+        </div>
+      </Link>
+      <div className={`${minimal ? "gap-3 p-4 sm:p-5" : "gap-4 p-5"} grid`}>
         {minimal ? (
           <>
-            <h3 className="text-xl font-semibold leading-tight">
-              {product.name}
-            </h3>
-            <p className="text-sm font-semibold">{formatPrice(product.price)}</p>
+            <Link
+              href={`/products/${product.slug}`}
+              className="focus-ring rounded-sm hover:text-clay"
+            >
+              <h3 className="text-xl font-semibold leading-tight">
+                {product.name}
+              </h3>
+            </Link>
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold">
+                {formatPrice(product.price)}
+              </p>
+              <AddToCartButton product={product} />
+            </div>
           </>
         ) : (
           <>
-            <div className="flex items-start justify-between gap-4">
+            <Link
+              href={`/products/${product.slug}`}
+              className="focus-ring flex items-start justify-between gap-4 rounded-sm hover:text-clay"
+            >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                   {product.category}
@@ -53,14 +69,19 @@ export function ProductCard({
                 size={18}
                 className="mt-1 shrink-0 text-muted transition group-hover:text-clay"
               />
-            </div>
+            </Link>
             <p className="text-sm leading-6 text-muted">
               {product.shortDescription}
             </p>
-            <p className="text-sm font-semibold">{formatPrice(product.price)}</p>
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold">
+                {formatPrice(product.price)}
+              </p>
+              <AddToCartButton product={product} />
+            </div>
           </>
         )}
       </div>
-    </Link>
+    </article>
   );
 }

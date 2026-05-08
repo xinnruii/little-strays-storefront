@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { PageIntro } from "@/components/PageIntro";
 
 export const metadata: Metadata = {

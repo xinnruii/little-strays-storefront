@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ButtonLink } from "@/components/ButtonLink";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { formatPrice, getProduct, products } from "@/lib/products";
 
 type ProductDetailProps = {
@@ -57,9 +58,10 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
           <h1 className="mt-5 text-6xl font-semibold leading-[0.9] sm:text-7xl">
             {product.name}
           </h1>
-          <p className="mt-5 text-xl font-semibold">
-            {formatPrice(product.price)}
-          </p>
+          <div className="mt-5 flex items-center gap-4">
+            <p className="text-xl font-semibold">{formatPrice(product.price)}</p>
+            <AddToCartButton product={product} />
+          </div>
           <p className="mt-6 text-lg leading-8 text-muted">
             {product.description}
           </p>
@@ -85,8 +87,8 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
 
           <div className="mt-8 rounded-sm border border-clay/10 bg-paper p-5 shadow-soft">
             <p className="text-sm leading-6 text-muted">
-              Checkout is not enabled yet. This template is ready for product
-              content, variants, and future commerce integration.
+              Checkout is not enabled yet. Added items are saved in this browser
+              while the shopping flow is being shaped.
             </p>
           </div>
           <div className="mt-7">
