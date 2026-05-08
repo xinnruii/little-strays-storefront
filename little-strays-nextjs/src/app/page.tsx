@@ -49,11 +49,10 @@ export default function Home() {
           </Link>
         </div>
         <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts.map((product, index) => (
+          {featuredProducts.map((product) => (
             <ProductCard
               key={product.slug}
               product={product}
-              imageSrc={`/images/product${index + 1}.jpg`}
               minimal
               squareImage
             />

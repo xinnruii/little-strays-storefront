@@ -3,7 +3,7 @@ import { mockProducts } from "@/content/mock-products";
 export type Product = {
   slug: string;
   name: string;
-  category: "Walk" | "Rest" | "Play" | "Care" | "Home";
+  category: "Walk" | "Rest" | "Play" | "Wear" | "Care" | "Home" | "Eat + Drink";
   price: number;
   shortDescription: string;
   description: string;

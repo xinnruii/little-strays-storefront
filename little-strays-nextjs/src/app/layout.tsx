@@ -5,6 +5,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 const navItems = [
+  { href: "/products", label: "All" },
   { href: "/products?category=eat-drink", label: "Eat + Drink" },
   { href: "/products?category=rest", label: "Rest" },
   { href: "/products?category=play", label: "Play" },

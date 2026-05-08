@@ -23,84 +23,138 @@ import type { Product } from "@/lib/products";
 
 export const mockProducts: Product[] = [
   {
-    slug: "willow-walk-set",
-    name: "Willow Walk Set",
+    slug: "sweet-potato-pouch",
+    name: "Sweet Potato Pouch",
     category: "Walk",
-    price: 86,
+    price: 32,
     shortDescription: "A soft cotton lead and adjustable collar for slow city loops.",
     description:
       "Made for steady mornings, the Willow Walk Set pairs a woven cotton lead with brass-toned hardware and a gentle adjustable collar.",
     materials: ["Organic cotton webbing", "Brass-finish hardware", "Recycled label"],
     color: "Fern",
-    image:
-      "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/product1.jpg",
     featured: true
   },
   {
-    slug: "cloud-nap-bed",
-    name: "Cloud Nap Bed",
-    category: "Rest",
-    price: 148,
-    shortDescription: "A low, washable bed with a quilted cotton cover.",
+    slug: "breakfast-loofah-set",
+    name: "Breakfast Loofah Set",
+    category: "Play",
+    price: 25,
+    shortDescription: "A cheerful textured toy set for gentle chewing and everyday play.",
     description:
-      "A quietly plush landing spot with a structured rim, removable cover, and resilient fill made for daily naps and evening sprawl.",
-    materials: ["Quilted cotton cover", "Recycled fiber fill", "Hidden zipper"],
-    color: "Milkweed",
-    image:
-      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80",
+      "A breakfast-inspired loofah set made for tossing, nosing, and light chewing during slow mornings at home.",
+    materials: ["Natural loofah", "Cotton details", "Plant-based dye"],
+    color: "Breakfast mix",
+    image: "/images/product2.jpg",
     featured: true
   },
   {
-    slug: "pocket-treat-pouch",
-    name: "Pocket Treat Pouch",
-    category: "Care",
-    price: 38,
+    slug: "blue-nest-bed",
+    name: "Blue Nest Bed",
+    category: "Rest",
+    price: 78,
     shortDescription: "A tidy clip-on pouch for training walks and park pockets.",
     description:
       "Cut from sturdy cotton canvas, this pouch keeps treats close without announcing itself. A magnetic top makes one-handed rewards easy.",
     materials: ["Cotton canvas", "Magnetic closure", "Metal belt clip"],
     color: "Clay",
-    image:
-      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/product3.jpg",
+    featured: true
   },
   {
-    slug: "window-seat-blanket",
-    name: "Window Seat Blanket",
-    category: "Home",
+    slug: "kitty-maze-bowl",
+    name: "Kitty Maze Bowl",
+    category: "Eat + Drink",
     price: 64,
     shortDescription: "A washable throw for favorite chairs, crates, and corners.",
     description:
       "Soft enough for pets and handsome enough to leave out, this blanket protects upholstery while adding an easy layered texture.",
     materials: ["Cotton fleece", "Bound edge", "Low-impact dye"],
     color: "Fig stripe",
-    image:
-      "https://images.unsplash.com/photo-1537151672256-6caf2e9f8c95?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/product4.png"
   },
   {
-    slug: "linen-mouse-pair",
-    name: "Linen Mouse Pair",
-    category: "Play",
+    slug: "cloud-blue-tray",
+    name: "Cloud Blue Tray",
+    category: "Eat + Drink",
     price: 24,
     shortDescription: "Crinkly, refillable cat toys sewn from sturdy linen remnants.",
     description:
       "A pair of small linen toys with a crisp interior and refillable catnip pocket, made for batting, hiding, and rediscovering.",
     materials: ["Linen remnant shell", "Crinkle insert", "Refillable catnip pocket"],
     color: "Oat and moss",
-    image:
-      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1200&q=80",
-    featured: true
+    image: "/images/product5.png"
   },
   {
-    slug: "ceramic-supper-bowl",
-    name: "Ceramic Supper Bowl",
-    category: "Home",
+    slug: "rose-nap-mat",
+    name: "Rose Nap Mat",
+    category: "Rest",
     price: 52,
     shortDescription: "A weighted ceramic bowl with a satin glaze and low profile.",
     description:
       "Thrown in a small-batch studio, this low bowl keeps mealtime steady and brings a tableware sensibility to the floor.",
     materials: ["Stoneware clay", "Food-safe satin glaze", "Cork foot"],
     color: "Speckled cream",
-    image:
-      "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/product6.png"
+  },
+  {
+    slug: "sunny-stroll-vest",
+    name: "Sunny Stroll Vest",
+    category: "Wear",
+    price: 46,
+    shortDescription: "A light vest for bright walks, easy layering, and soft visibility.",
+    description:
+      "A sunny little walking vest with a gentle fit, simple fastening, and an easy layer for mild days outside.",
+    materials: ["Lightweight cotton blend", "Soft binding", "Adjustable closure"],
+    color: "Sunny cream",
+    image: "/images/product7.png"
+  },
+  {
+    slug: "everyday-collar",
+    name: "Everyday Collar",
+    category: "Walk",
+    price: 28,
+    shortDescription: "A soft adjustable collar made for daily walks and easy wear.",
+    description:
+      "A lightweight everyday collar with a smooth feel, tidy hardware, and an easy fit for neighborhood loops and sunny errands.",
+    materials: ["Cotton webbing", "Metal hardware", "Adjustable buckle"],
+    color: "Everyday neutral",
+    image: "/images/product8.png"
+  },
+  {
+    slug: "caramel-walk-leash",
+    name: "Caramel Walk Leash",
+    category: "Walk",
+    price: 38,
+    shortDescription: "A warm-toned leash for relaxed walks and steady hands.",
+    description:
+      "A caramel-colored walking leash with a comfortable hand loop, polished hardware, and a simple profile for daily outings.",
+    materials: ["Cotton webbing", "Metal clasp", "Reinforced stitching"],
+    color: "Caramel",
+    image: "/images/product9.png"
+  },
+  {
+    slug: "felt-blue-fish",
+    name: "Felt Blue Fish",
+    category: "Play",
+    price: 18,
+    shortDescription: "A soft felt fish toy made for batting, chasing, and carrying.",
+    description:
+      "A lightweight felt fish with a soft shape and tidy stitched finish, designed for small bursts of play around the house.",
+    materials: ["Wool felt", "Cotton stitching", "Soft fiber fill"],
+    color: "Blue",
+    image: "/images/product10.png"
+  },
+  {
+    slug: "felt-orange-squid",
+    name: "Felt Orange Squid",
+    category: "Play",
+    price: 20,
+    shortDescription: "A bright felt squid toy with floppy legs for playful paws.",
+    description:
+      "A cheerful felt squid with a light, tossable body and soft legs made for batting, pouncing, and supervised play.",
+    materials: ["Wool felt", "Cotton stitching", "Soft fiber fill"],
+    color: "Orange",
+    image: "/images/product11.png"
   }
 ];

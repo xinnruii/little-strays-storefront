@@ -1,41 +1,51 @@
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/ProductCard";
-import { PageIntro } from "@/components/PageIntro";
 import { products } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Products"
 };
 
-export default function ProductsPage() {
-  const categories = Array.from(new Set(products.map((product) => product.category)));
+const categoryProductMap = {
+  "eat-drink": products.slice(3, 5),
+  rest: [products[2], products[5]],
+  play: products.filter((product) => product.category === "Play"),
+  walk: products.filter((product) => product.category === "Walk"),
+  wear: products.filter((product) => product.category === "Wear")
+};
+
+type ProductsPageProps = {
+  searchParams?: Promise<{
+    category?: string;
+  }>;
+};
+
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const params = await searchParams;
+  const category = params?.category;
+  const categoryProducts =
+    category && category in categoryProductMap
+      ? categoryProductMap[category as keyof typeof categoryProductMap]
+      : products;
 
   return (
-    <>
-      <PageIntro kicker="Shop" title="A considered edit for cats, dogs, and home.">
-        <p>
-          Browse the first Little Strays collection: tactile essentials for
-          care, rest, walking, and play. Product data is mocked for now, with
-          checkout and payments intentionally saved for a later phase.
-        </p>
-      </PageIntro>
-      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
-        <div className="mb-8 flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <span
-              key={category}
-              className="rounded-full border border-clay/15 bg-paper px-4 py-2 text-sm text-muted"
-            >
-              {category}
-            </span>
-          ))}
-        </div>
+    <section className="mx-auto max-w-[1720px] px-4 py-16 sm:px-6 lg:px-6 lg:py-20 xl:px-8">
+      {categoryProducts.length > 0 ? (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.slug} product={product} />
+          {categoryProducts.map((product) => (
+            <ProductCard
+              key={product.slug}
+              product={product}
+              minimal
+              squareImage
+            />
           ))}
         </div>
-      </section>
-    </>
+      ) : (
+        <p className="text-base leading-8 text-muted">
+          This category is coming soon.
+        </p>
+      )}
+    </section>
   );
 }
