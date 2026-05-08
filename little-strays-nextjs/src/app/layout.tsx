@@ -43,6 +43,12 @@ export default function RootLayout({
         <CartProvider>
           <ScrollToTop />
           <div className="min-h-screen bg-ground text-ink">
+            <a
+              href="#main-content"
+              className="focus-ring fixed left-4 top-4 z-[100] -translate-y-20 rounded-sm border border-clay bg-white px-4 py-3 text-sm font-semibold text-clay shadow-soft transition focus-visible:translate-y-0"
+            >
+              Skip to content
+            </a>
             <header className="sticky top-0 z-50 border-b border-clay/15 bg-white/92 backdrop-blur-xl">
               <div className="border-b border-clay/10 bg-linen px-5 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
                 Local Los Angeles preorders are delivered twice per month.
@@ -100,7 +106,9 @@ export default function RootLayout({
                 </nav>
               </div>
             </header>
-            <main>{children}</main>
+            <main id="main-content" tabIndex={-1}>
+              {children}
+            </main>
             <footer className="border-t border-clay/15 bg-white text-ink">
               <div className="mx-auto grid max-w-[1720px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-6 xl:px-8">
                 <div>
@@ -115,17 +123,26 @@ export default function RootLayout({
                     Shop
                   </p>
                   <div className="mt-4 grid gap-3 text-sm text-muted">
-                    <Link href="/products" className="hover:text-clay">
+                    <Link href="/products" className="focus-ring rounded-sm hover:text-clay">
                       All products
                     </Link>
-                    <Link href="/about" className="hover:text-clay">
+                    <Link href="/about" className="focus-ring rounded-sm hover:text-clay">
                       About
                     </Link>
-                    <Link href="/contact" className="hover:text-clay">
+                    <Link href="/contact" className="focus-ring rounded-sm hover:text-clay">
                       Contact
                     </Link>
-                    <Link href="/shipping-returns" className="hover:text-clay">
+                    <Link
+                      href="/shipping-returns"
+                      className="focus-ring rounded-sm hover:text-clay"
+                    >
                       Shipping & Returns
+                    </Link>
+                    <Link
+                      href="/accessibility"
+                      className="focus-ring rounded-sm hover:text-clay"
+                    >
+                      Accessibility
                     </Link>
                   </div>
                 </div>
