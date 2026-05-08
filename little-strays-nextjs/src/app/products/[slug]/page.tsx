@@ -87,8 +87,9 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
 
           <div className="mt-8 rounded-sm border border-clay/10 bg-paper p-5 shadow-soft">
             <p className="text-sm leading-6 text-muted">
-              Checkout is not enabled yet. Added items are saved in this browser
-              while the shopping flow is being shaped.
+              Little Strays works by preorder. Added items stay in your browser
+              until checkout, then we review and schedule one of two monthly
+              local delivery runs.
             </p>
           </div>
           <div className="mt-7">

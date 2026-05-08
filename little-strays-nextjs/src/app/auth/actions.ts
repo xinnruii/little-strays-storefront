@@ -136,6 +136,7 @@ export async function updateProfile(formData: FormData) {
     full_name: getStringValue(formData, "fullName"),
     phone: getStringValue(formData, "phone"),
     pet_names: getStringValue(formData, "petNames"),
+    delivery_address: getStringValue(formData, "deliveryAddress"),
     delivery_notes: getStringValue(formData, "deliveryNotes")
   });
 

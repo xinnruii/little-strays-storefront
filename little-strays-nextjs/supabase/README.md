@@ -9,8 +9,29 @@
 5. In Supabase Auth email templates, set the confirm signup URL to:
 
 ```text
-{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email
+{{ .RedirectTo }}?token_hash={{ .TokenHash }}&type=email
 ```
 
-The site uses Supabase for account creation, login, logout, and profile info.
-Products and the local cart are still file/browser based for now.
+The site uses Supabase for account creation, login, logout, profile info,
+preorder history, and admin order export.
+
+Products are still file based in `src/content/mock-products.ts`. The cart is
+saved in the browser until checkout, then the app stores an order and item
+snapshot in Supabase.
+
+## Admin access
+
+Admins use the same login flow as customers. To make a signed-up user an admin,
+run this in the Supabase SQL editor:
+
+```sql
+update public.profiles
+set is_admin = true
+where id = (
+  select id
+  from auth.users
+  where email = 'admin@example.com'
+);
+```
+
+Then visit `/admin/orders` to view preorders and download the CSV.

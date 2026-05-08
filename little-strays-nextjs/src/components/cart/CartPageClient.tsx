@@ -32,8 +32,8 @@ export function CartPageClient() {
           Your cart is empty.
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
-          Add a few favorites, then come back here to review them. Checkout is
-          still coming later.
+          Add a few favorites, then come back here to place a local preorder.
+          Little Strays delivers twice per month.
         </p>
         <Link
           href="/products"
@@ -135,18 +135,24 @@ export function CartPageClient() {
         </div>
 
         <aside className="h-fit rounded-sm bg-paper p-5 shadow-soft">
-          <h2 className="text-2xl font-semibold">Order note</h2>
+          <h2 className="text-2xl font-semibold">Preorder note</h2>
           <div className="mt-5 flex items-center justify-between border-y border-clay/15 py-4 text-sm">
             <span className="text-muted">Subtotal</span>
             <span className="font-semibold">{formatPrice(subtotal)}</span>
           </div>
           <p className="mt-5 text-sm leading-6 text-muted">
-            Checkout is not enabled yet. This cart is saved in this browser so
-            you can keep shaping the shopping flow before adding payments.
+            Checkout creates a preorder for Little Strays to review. Local
+            deliveries are grouped into two monthly delivery runs.
           </p>
           <Link
+            href="/checkout"
+            className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+          >
+            Checkout
+          </Link>
+          <Link
             href="/products"
-            className="focus-ring mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-clay/15 bg-white px-4 text-sm font-semibold text-clay transition hover:border-clay/35 hover:bg-linen"
+            className="focus-ring mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-clay/15 bg-white px-4 text-sm font-semibold text-clay transition hover:border-clay/35 hover:bg-linen"
           >
             Keep shopping
           </Link>

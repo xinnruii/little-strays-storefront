@@ -45,8 +45,8 @@ export default function RootLayout({
           <div className="min-h-screen bg-ground text-ink">
             <header className="sticky top-0 z-50 border-b border-clay/15 bg-white/92 backdrop-blur-xl">
               <div className="border-b border-clay/10 bg-linen px-5 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
-                Currently delivering within Los Angeles only. National shipping
-                is on the way.
+                Local Los Angeles preorders are delivered twice per month.
+                National shipping is on the way.
               </div>
               <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6 lg:gap-6 lg:px-6 xl:px-8">
                 <nav

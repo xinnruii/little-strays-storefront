@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const policies = [
   {
     title: "Shipping",
-    text: "Little Strays currently supports local delivery within Los Angeles only. National shipping is on the way, and this page will be updated as soon as wider delivery is available."
+    text: "Little Strays currently supports Los Angeles preorder delivery only. Orders are grouped into two local delivery runs per month, and national shipping is on the way."
   },
   {
     title: "Returns",
@@ -29,9 +29,9 @@ export default function ShippingReturnsPage() {
     <>
       <PageIntro kicker="Policy" title="Shipping and returns without the small print fog.">
         <p>
-          Little Strays is currently delivering within Los Angeles only.
-          National shipping is coming soon, and return details will expand as
-          wider fulfillment becomes available.
+          Little Strays is currently delivering Los Angeles preorders twice per
+          month. National shipping is coming soon, and return details will
+          expand as wider fulfillment becomes available.
         </p>
       </PageIntro>
       <section className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
