@@ -26,11 +26,11 @@ export default function AboutPage() {
         <div className="grid content-center gap-8">
           <div>
             <p className="editorial-kicker">Point of view</p>
-            <h2 className="mt-3 font-serif text-5xl leading-none">
+            <h2 className="mt-3 text-5xl font-semibold leading-none">
               Useful first, beautiful always.
             </h2>
           </div>
-          <div className="grid gap-6 text-base leading-8 text-ink/68">
+          <div className="grid gap-6 text-base leading-8 text-muted">
             <p>
               Our mock collection begins with the things pets actually use:
               bowls, beds, blankets, walk sets, toys, and pouches. Each piece is

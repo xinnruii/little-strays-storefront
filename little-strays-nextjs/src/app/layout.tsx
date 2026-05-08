@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShoppingBag } from "lucide-react";
 import "./globals.css";
 
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" }
+  { href: "/products?category=eat-drink", label: "Eat + Drink" },
+  { href: "/products?category=rest", label: "Rest" },
+  { href: "/products?category=play", label: "Play" },
+  { href: "/products?category=walk", label: "Walk" },
+  { href: "/products?category=wear", label: "Wear" }
 ];
 
 export const metadata: Metadata = {
@@ -26,36 +26,57 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="font-sans antialiased">
-        <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#f3ded0_0,#fbf6ee_34%,#f7efe4_100%)]">
-          <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/88 backdrop-blur-xl">
-            <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+        <div className="min-h-screen bg-ground text-ink">
+          <header className="sticky top-0 z-50 border-b border-clay/15 bg-white/92 backdrop-blur-xl">
+            <div className="border-b border-clay/10 bg-linen px-5 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
+              Currently delivering within Los Angeles only. National shipping is
+              on the way.
+            </div>
+            <div className="mx-auto grid max-w-[1720px] grid-cols-1 items-center gap-3 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-6 lg:px-6 xl:px-8">
+              <nav
+                className="hidden items-center gap-1 justify-self-start text-sm text-muted lg:flex"
+                aria-label="Primary navigation categories"
+              >
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
               <Link
                 href="/"
-                className="focus-ring flex items-center gap-3 rounded-sm"
+                className="focus-ring flex shrink-0 items-center justify-self-center overflow-hidden rounded-full"
                 aria-label="Little Strays home"
               >
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-ink text-paper">
-                  <ShoppingBag size={18} strokeWidth={1.8} />
-                </span>
-                <span>
-                  <span className="block font-serif text-2xl leading-none">
-                    Little Strays
-                  </span>
-                  <span className="hidden text-[0.65rem] uppercase tracking-[0.26em] text-ink/55 sm:block">
-                    Pet goods
-                  </span>
-                </span>
+                <img
+                  src="/images/little-strays-logo.jpg"
+                  alt=""
+                  className="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
+                />
               </Link>
+              <div aria-hidden="true" className="hidden lg:block" />
               <nav
-                className="flex items-center gap-1 overflow-x-auto text-sm text-ink/70"
+                className="flex items-center justify-center gap-1 overflow-x-auto text-sm text-muted lg:hidden"
                 aria-label="Primary navigation"
               >
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-ink"
+                    className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
                   >
                     {item.label}
                   </Link>
@@ -64,33 +85,39 @@ export default function RootLayout({
             </div>
           </header>
           <main>{children}</main>
-          <footer className="border-t border-ink/10 bg-ink text-paper">
-            <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+          <footer className="border-t border-clay/15 bg-white text-ink">
+            <div className="mx-auto grid max-w-[1720px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-6 xl:px-8">
               <div>
-                <p className="font-serif text-3xl">Little Strays</p>
-                <p className="mt-4 max-w-sm text-sm leading-6 text-paper/68">
+                <p className="text-3xl font-semibold">Little Strays</p>
+                <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
                   Quietly beautiful goods for pets who make a home feel awake,
                   warm, and a little more lived in.
                 </p>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-paper/50">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
                   Shop
                 </p>
-                <div className="mt-4 grid gap-3 text-sm text-paper/72">
-                  <Link href="/products" className="hover:text-paper">
+                <div className="mt-4 grid gap-3 text-sm text-muted">
+                  <Link href="/products" className="hover:text-clay">
                     All products
                   </Link>
-                  <Link href="/shipping-returns" className="hover:text-paper">
+                  <Link href="/about" className="hover:text-clay">
+                    About
+                  </Link>
+                  <Link href="/contact" className="hover:text-clay">
+                    Contact
+                  </Link>
+                  <Link href="/shipping-returns" className="hover:text-clay">
                     Shipping & Returns
                   </Link>
                 </div>
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-paper/50">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
                   Visit
                 </p>
-                <p className="mt-4 text-sm leading-6 text-paper/72">
+                <p className="mt-4 text-sm leading-6 text-muted">
                   18 Willow Lane
                   <br />
                   Portland, OR

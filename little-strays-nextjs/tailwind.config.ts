@@ -4,25 +4,28 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}"
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/content/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
       colors: {
-        ink: "#25211d",
-        paper: "#fbf6ee",
-        oat: "#efe4d4",
-        clay: "#b66f54",
-        moss: "#5f725c",
-        fig: "#6f4f63",
-        linen: "#f6eddf"
+        ground: "#FFFFFF",
+        ink: "#2A211C",
+        muted: "#5F5048",
+        paper: "#F8F5EF",
+        oat: "#F8F5EF",
+        clay: "#614331",
+        moss: "#6A704A",
+        fig: "#76515E",
+        linen: "#F8F5EF"
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
-        serif: ["var(--font-serif)", "Georgia", "serif"]
+        sans: ["var(--font-dm-sans)", "ui-sans-serif", "system-ui"],
+        serif: ["var(--font-dm-sans)", "ui-sans-serif", "system-ui"]
       },
       boxShadow: {
-        soft: "0 24px 70px rgba(74, 55, 36, 0.12)"
+        soft: "0 24px 70px rgba(42, 33, 28, 0.09)"
       }
     }
   },

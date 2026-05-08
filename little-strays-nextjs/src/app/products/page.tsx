@@ -24,7 +24,7 @@ export default function ProductsPage() {
           {categories.map((category) => (
             <span
               key={category}
-              className="rounded-full border border-ink/12 bg-paper px-4 py-2 text-sm text-ink/68"
+              className="rounded-full border border-clay/15 bg-paper px-4 py-2 text-sm text-muted"
             >
               {category}
             </span>

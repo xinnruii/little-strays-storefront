@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const policies = [
   {
     title: "Shipping",
-    text: "Orders currently ship in 2 to 4 business days in reusable or curbside-recyclable packaging. Delivery windows shown here are sample copy for the initial storefront."
+    text: "Little Strays currently supports local delivery within Los Angeles only. National shipping is on the way, and this page will be updated as soon as wider delivery is available."
   },
   {
     title: "Returns",
@@ -29,17 +29,19 @@ export default function ShippingReturnsPage() {
     <>
       <PageIntro kicker="Policy" title="Shipping and returns without the small print fog.">
         <p>
-          These policies are starter content for the Little Strays storefront.
-          They keep the page structure ready while fulfillment and inventory
-          details are finalized.
+          Little Strays is currently delivering within Los Angeles only.
+          National shipping is coming soon, and return details will expand as
+          wider fulfillment becomes available.
         </p>
       </PageIntro>
       <section className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
         <div className="grid gap-4 sm:grid-cols-2">
           {policies.map((policy) => (
             <article key={policy.title} className="rounded-sm bg-paper p-6 shadow-soft">
-              <h2 className="font-serif text-3xl">{policy.title}</h2>
-              <p className="mt-4 text-sm leading-7 text-ink/66">{policy.text}</p>
+              <h2 className="text-3xl font-semibold">
+                {policy.title}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-muted">{policy.text}</p>
             </article>
           ))}
         </div>

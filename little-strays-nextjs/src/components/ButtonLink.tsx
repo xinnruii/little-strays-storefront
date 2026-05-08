@@ -12,8 +12,8 @@ export function ButtonLink({
 }) {
   const classes =
     variant === "dark"
-      ? "bg-ink text-paper hover:bg-clay"
-      : "bg-paper text-ink hover:bg-oat";
+      ? "border border-clay bg-clay text-white shadow-soft hover:border-ink hover:bg-ink"
+      : "border border-clay/20 bg-white text-clay hover:border-clay/40 hover:bg-linen";
 
   return (
     <Link

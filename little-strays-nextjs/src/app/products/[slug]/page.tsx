@@ -54,28 +54,28 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
         </div>
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="editorial-kicker">{product.category}</p>
-          <h1 className="mt-5 font-serif text-6xl leading-[0.9] sm:text-7xl">
+          <h1 className="mt-5 text-6xl font-semibold leading-[0.9] sm:text-7xl">
             {product.name}
           </h1>
           <p className="mt-5 text-xl font-semibold">
             {formatPrice(product.price)}
           </p>
-          <p className="mt-6 text-lg leading-8 text-ink/68">
+          <p className="mt-6 text-lg leading-8 text-muted">
             {product.description}
           </p>
 
-          <div className="mt-8 grid gap-5 border-y border-ink/12 py-7">
+          <div className="mt-8 grid gap-5 border-y border-clay/15 py-7">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/45">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                 Color
               </p>
               <p className="mt-2 text-sm">{product.color}</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/45">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                 Materials
               </p>
-              <ul className="mt-2 grid gap-2 text-sm text-ink/68">
+              <ul className="mt-2 grid gap-2 text-sm text-muted">
                 {product.materials.map((material) => (
                   <li key={material}>{material}</li>
                 ))}
@@ -83,8 +83,8 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
             </div>
           </div>
 
-          <div className="mt-8 rounded-sm bg-linen p-5">
-            <p className="text-sm leading-6 text-ink/68">
+          <div className="mt-8 rounded-sm border border-clay/10 bg-paper p-5 shadow-soft">
+            <p className="text-sm leading-6 text-muted">
               Checkout is not enabled yet. This template is ready for product
               content, variants, and future commerce integration.
             </p>
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
       </section>
 
       <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
-        <h2 className="font-serif text-4xl">Also in the edit</h2>
+        <h2 className="text-4xl font-semibold">Also in the edit</h2>
         <div className="mt-7 grid gap-4 sm:grid-cols-3">
           {relatedProducts.map((item) => (
             <Link
@@ -110,8 +110,10 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
                 className="h-24 w-20 rounded-sm object-cover"
               />
               <span className="self-center">
-                <span className="block font-serif text-xl">{item.name}</span>
-                <span className="mt-1 block text-sm text-ink/58">
+                <span className="block text-xl font-semibold">
+                  {item.name}
+                </span>
+                <span className="mt-1 block text-sm text-muted">
                   {formatPrice(item.price)}
                 </span>
               </span>

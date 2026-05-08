@@ -39,10 +39,10 @@ export default function ContactPage() {
           {contactItems.map((item) => (
             <div key={item.label} className="rounded-sm bg-paper p-5 shadow-soft">
               <item.icon size={20} className="text-clay" aria-hidden="true" />
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-ink/45">
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                 {item.label}
               </p>
-              <p className="mt-2 text-sm leading-6 text-ink/68">{item.value}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.value}</p>
             </div>
           ))}
         </div>
@@ -51,7 +51,7 @@ export default function ContactPage() {
             <label className="grid gap-2 text-sm font-semibold">
               Name
               <input
-                className="focus-ring min-h-12 rounded-sm border border-ink/12 bg-linen px-4 font-normal"
+                className="focus-ring min-h-12 rounded-sm border border-clay/16 bg-linen px-4 font-normal text-ink placeholder:text-muted"
                 placeholder="Your name"
               />
             </label>
@@ -59,7 +59,7 @@ export default function ContactPage() {
               Email
               <input
                 type="email"
-                className="focus-ring min-h-12 rounded-sm border border-ink/12 bg-linen px-4 font-normal"
+                className="focus-ring min-h-12 rounded-sm border border-clay/16 bg-linen px-4 font-normal text-ink placeholder:text-muted"
                 placeholder="you@example.com"
               />
             </label>
@@ -67,13 +67,13 @@ export default function ContactPage() {
           <label className="mt-5 grid gap-2 text-sm font-semibold">
             Message
             <textarea
-              className="focus-ring min-h-40 rounded-sm border border-ink/12 bg-linen px-4 py-3 font-normal"
+              className="focus-ring min-h-40 rounded-sm border border-clay/16 bg-linen px-4 py-3 font-normal text-ink placeholder:text-muted"
               placeholder="Tell us what you are looking for."
             />
           </label>
           <button
             type="button"
-            className="focus-ring mt-6 min-h-12 rounded-sm bg-ink px-5 text-sm font-semibold text-paper transition hover:bg-clay"
+            className="focus-ring mt-6 min-h-12 rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
           >
             Send inquiry
           </button>

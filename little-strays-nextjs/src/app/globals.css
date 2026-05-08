@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Inter", "Avenir Next", "Segoe UI", sans-serif;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-dm-sans: "DM Sans", "Avenir Next", "Segoe UI", sans-serif;
 }
 
 * {
@@ -17,13 +16,13 @@ html {
 
 body {
   margin: 0;
-  background: #fbf6ee;
-  color: #25211d;
+  background: #ffffff;
+  color: #2a211c;
 }
 
 ::selection {
-  background: #b66f54;
-  color: #fbf6ee;
+  background: #614331;
+  color: #ffffff;
 }
 
 .editorial-kicker {
@@ -31,5 +30,5 @@ body {
 }
 
 .focus-ring {
-  @apply outline-none ring-offset-2 ring-offset-paper transition focus-visible:ring-2 focus-visible:ring-clay;
+  @apply outline-none ring-offset-2 ring-offset-ground transition focus-visible:ring-2 focus-visible:ring-clay;
 }
