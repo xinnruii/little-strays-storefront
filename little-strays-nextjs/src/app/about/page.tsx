@@ -7,32 +7,42 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
-        <div className="overflow-hidden rounded-sm bg-oat shadow-soft">
+      <section className="grid gap-10 pb-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 lg:pb-20">
+        <div className="bg-oat">
           <img
-            src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80"
+            src="/images/About_Page_2.jpeg"
             alt="A small dog wrapped in a soft blanket"
-            className="aspect-[4/5] h-full w-full object-cover"
+            className="block aspect-square w-full object-cover"
           />
         </div>
-        <div className="grid content-center gap-8">
+        <div className="grid content-start gap-8 px-5 pt-10 sm:px-8 lg:max-w-2xl lg:px-0 lg:pr-8 lg:pt-20">
           <div>
-            <p className="editorial-kicker">Point of view</p>
-            <h2 className="mt-3 text-5xl font-semibold leading-none">
-              Useful first, beautiful always.
-            </h2>
+            <h1 className="text-5xl font-semibold leading-none">
+              Our bosses have paws.
+            </h1>
           </div>
           <div className="grid gap-6 text-base leading-8 text-muted">
             <p>
-              Our mock collection begins with the things pets actually use:
-              bowls, beds, blankets, walk sets, toys, and pouches. Each piece is
-              selected as if it will live in the front room, not vanish into a
-              closet.
+              Little Strays was inspired by four adopted little ones: May,
+              Lucky, Joe, and Pika. They are our CEO, CTO, CFO, and CPO,
+              although they mostly work in naps, snack inspections, quality
+              control, and emotional support.
             </p>
             <p>
-              As the storefront grows, this page can expand into founder notes,
-              sourcing standards, rescue partnerships, maker profiles, and
-              product care guides.
+              The humans? We are just the employees.
+            </p>
+            <p>
+              Our job is simple: listen to what they need, notice what makes
+              their days softer, and find beautiful, practical goods that make
+              life with pets feel easier, warmer, and more joyful.
+            </p>
+            <p>
+              Everything we carry is chosen with our four tiny bosses in mind.
+              Many pieces are inspected, tested, sat on, sniffed, chased, or
+              approved by May, Lucky, Joe, and Pika themselves.
+            </p>
+            <p>
+              If they love it, it earns a place at Little Strays.
             </p>
           </div>
         </div>
