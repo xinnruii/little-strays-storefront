@@ -16,18 +16,16 @@ const contactItems = [
     icon: MessageCircle,
     label: "Response time",
     value: "Monday through Friday, within one business day"
-  },
-  {
-    icon: MapPin,
-    label: "Studio",
-    value: "18 Willow Lane, Portland, OR"
   }
 ];
 
 export default function ContactPage() {
   return (
     <>
-      <PageIntro kicker="Contact" title="Questions, sizing notes, and kind hellos.">
+      <PageIntro
+        title="Questions, sizing notes, and kind hellos."
+        titleClassName="text-5xl font-semibold leading-none"
+      >
         <p>
           Reach out for product fit guidance, care questions, press notes, or
           future wholesale conversations. The form below is a static template
@@ -46,6 +44,7 @@ export default function ContactPage() {
             </div>
           ))}
         </div>
+        {/* TODO: Wire this form to a real contact submission flow. */}
         <form className="rounded-sm bg-paper p-5 shadow-soft sm:p-8">
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold">

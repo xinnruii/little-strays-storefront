@@ -124,15 +124,27 @@ export default function RootLayout({
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
-                  Visit
+                  Little notes
                 </p>
-                <p className="mt-4 text-sm leading-6 text-muted">
-                  18 Willow Lane
-                  <br />
-                  Portland, OR
-                  <br />
-                  hello@littlestrays.test
+                <p className="mt-4 max-w-xs text-sm leading-6 text-muted">
+                  New arrivals, care notes, and tiny approvals from our four
+                  bosses.
                 </p>
+                {/* TODO: Connect newsletter signup to an email provider. */}
+                <form className="mt-4 flex max-w-xs overflow-hidden rounded-sm border border-clay/15 bg-linen">
+                  <input
+                    type="email"
+                    aria-label="Email address"
+                    placeholder="Email address"
+                    className="min-h-11 min-w-0 flex-1 bg-transparent px-3 text-sm text-ink outline-none placeholder:text-muted"
+                  />
+                  <button
+                    type="button"
+                    className="bg-clay px-4 text-sm font-semibold text-white transition hover:bg-ink"
+                  >
+                    Join
+                  </button>
+                </form>
               </div>
             </div>
           </footer>
