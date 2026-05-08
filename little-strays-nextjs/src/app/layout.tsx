@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 const navItems = [
@@ -34,7 +35,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
+        <ScrollToTop />
         <div className="min-h-screen bg-ground text-ink">
           <header className="sticky top-0 z-50 border-b border-clay/15 bg-white/92 backdrop-blur-xl">
             <div className="border-b border-clay/10 bg-linen px-5 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
