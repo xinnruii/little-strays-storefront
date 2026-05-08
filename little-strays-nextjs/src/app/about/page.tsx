@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageIntro } from "@/components/PageIntro";
 
 export const metadata: Metadata = {
   title: "About"
@@ -8,14 +7,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageIntro kicker="About" title="A pet shop with a quieter sense of luxury.">
-        <p>
-          Little Strays was imagined for people who see pet care as part of the
-          atmosphere of home. We source pieces that are useful, tactile, and
-          gentle on the eye.
-        </p>
-      </PageIntro>
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
         <div className="overflow-hidden rounded-sm bg-oat shadow-soft">
           <img
             src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=1200&q=80"
