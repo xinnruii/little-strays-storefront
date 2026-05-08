@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
@@ -43,7 +44,7 @@ export default function RootLayout({
               Currently delivering within Los Angeles only. National shipping is
               on the way.
             </div>
-            <div className="mx-auto grid max-w-[1720px] grid-cols-1 items-center gap-3 px-4 py-4 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-6 lg:px-6 xl:px-8">
+            <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6 lg:gap-6 lg:px-6 xl:px-8">
               <nav
                 className="hidden items-center gap-1 justify-self-start text-sm text-muted lg:flex"
                 aria-label="Primary navigation categories"
@@ -69,9 +70,15 @@ export default function RootLayout({
                   className="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
                 />
               </Link>
-              <div aria-hidden="true" className="hidden lg:block" />
+              <Link
+                href="/cart"
+                className="focus-ring grid h-10 w-10 place-items-center justify-self-end rounded-full border border-clay/15 text-clay transition hover:border-clay/35 hover:bg-linen"
+                aria-label="Shopping cart"
+              >
+                <ShoppingBag size={18} strokeWidth={1.8} />
+              </Link>
               <nav
-                className="flex items-center justify-center gap-1 overflow-x-auto text-sm text-muted lg:hidden"
+                className="col-span-3 flex items-center justify-center gap-1 overflow-x-auto text-sm text-muted lg:hidden"
                 aria-label="Primary navigation"
               >
                 {navItems.map((item) => (
