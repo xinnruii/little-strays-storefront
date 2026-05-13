@@ -32,14 +32,14 @@ export function ProductCard({
           />
         </div>
       </Link>
-      <div className={`${minimal ? "gap-3 p-4 sm:p-5" : "gap-4 p-5"} grid`}>
+      <div className={`${minimal ? "gap-3 p-4 sm:p-5" : "gap-4 p-4 sm:p-5"} grid`}>
         {minimal ? (
           <>
             <Link
               href={`/products/${product.slug}`}
               className="focus-ring rounded-sm hover:text-clay"
             >
-              <h3 className="text-xl font-semibold leading-tight">
+              <h3 className="text-lg font-semibold leading-tight sm:text-xl">
                 {product.name}
               </h3>
             </Link>
@@ -60,7 +60,7 @@ export function ProductCard({
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                   {product.category}
                 </p>
-                <h3 className="mt-2 text-2xl font-semibold leading-none">
+                <h3 className="mt-2 text-xl font-semibold leading-tight sm:text-2xl sm:leading-none">
                   {product.name}
                 </h3>
               </div>

@@ -25,10 +25,10 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       : "/account";
 
   return (
-    <section className="mx-auto grid max-w-[1100px] gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-24">
+    <section className="mx-auto grid max-w-[1100px] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-8 lg:py-24">
       <div>
         <p className="editorial-kicker">Account</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">Log in</h1>
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">Log in</h1>
         <p className="mt-6 max-w-md text-base leading-7 text-muted">
           Sign in to manage your Little Strays profile, delivery notes, and pet
           details.
@@ -41,7 +41,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         </p>
       </div>
 
-      <form action={signIn} className="rounded-sm bg-paper p-5 shadow-soft sm:p-8">
+      <form action={signIn} className="rounded-sm bg-paper p-4 shadow-soft sm:p-8">
         {params?.message ? (
           <p className="mb-5 rounded-sm border border-clay/15 bg-linen px-4 py-3 text-sm leading-6 text-muted">
             {params.message}

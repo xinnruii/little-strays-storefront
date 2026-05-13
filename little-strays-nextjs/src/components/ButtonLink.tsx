@@ -18,7 +18,7 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={`focus-ring inline-flex min-h-12 items-center gap-2 rounded-sm px-5 text-sm font-semibold transition ${classes}`}
+      className={`focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm px-5 text-sm font-semibold transition sm:w-auto ${classes}`}
     >
       {children}
       <ArrowRight aria-hidden="true" size={16} />

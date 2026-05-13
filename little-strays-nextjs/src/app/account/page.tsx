@@ -29,9 +29,9 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
   if (!isSupabaseConfigured()) {
     return (
-      <section className="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
         <p className="editorial-kicker">Account</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Supabase setup needed.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-muted">
@@ -93,11 +93,11 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   const orderHistory = (orders ?? []) as OrderWithItems[];
 
   return (
-    <section className="mx-auto max-w-[1180px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+    <section className="mx-auto max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
+      <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
         <div>
           <p className="editorial-kicker">Account</p>
-          <h1 className="mt-4 text-5xl font-semibold leading-none">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
             Your profile
           </h1>
           <p className="mt-6 max-w-md text-base leading-7 text-muted">
@@ -126,7 +126,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
         <form
           action={updateProfile}
-          className="rounded-sm bg-paper p-5 shadow-soft sm:p-8"
+          className="rounded-sm bg-paper p-4 shadow-soft sm:p-8"
         >
           {params?.message ? (
             <p className="mb-5 rounded-sm border border-clay/15 bg-linen px-4 py-3 text-sm leading-6 text-muted">
@@ -196,18 +196,18 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
           </label>
           <button
             type="submit"
-            className="focus-ring mt-6 min-h-12 rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+            className="focus-ring mt-6 min-h-12 w-full rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
           >
             Save profile
           </button>
         </form>
       </div>
 
-      <div className="mt-14">
+      <div className="mt-12 lg:mt-14">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="editorial-kicker">Order history</p>
-            <h2 className="mt-3 text-4xl font-semibold leading-tight">
+            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
               Your preorders
             </h2>
           </div>
@@ -236,13 +236,13 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
         <div className="mt-6 grid gap-4">
           {orderHistory.map((order) => (
-            <article key={order.id} className="rounded-sm bg-paper p-5 shadow-soft">
+            <article key={order.id} className="rounded-sm bg-paper p-4 shadow-soft sm:p-5">
               <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
                     {formatOrderDate(order.created_at)}
                   </p>
-                  <h3 className="mt-2 text-2xl font-semibold">
+                  <h3 className="mt-2 break-words text-xl font-semibold sm:text-2xl">
                     Preorder #{order.id.slice(0, 8)}
                   </h3>
                 </div>
@@ -255,7 +255,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
                 {getOrderItems(order).map((item) => (
                   <div
                     key={`${order.id}-${item.product_slug}`}
-                    className="flex items-center justify-between gap-4 text-sm"
+                    className="flex flex-wrap items-center justify-between gap-3 text-sm"
                   >
                     <span>
                       {item.quantity} x {item.product_name}
@@ -266,7 +266,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-sm leading-6 text-muted">
+              <p className="mt-4 break-words text-sm leading-6 text-muted">
                 Local delivery address: {order.delivery_address}
               </p>
             </article>

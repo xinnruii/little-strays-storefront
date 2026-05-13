@@ -26,18 +26,18 @@ export function CartPageClient() {
 
   if (cartLines.length === 0) {
     return (
-      <section className="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
         <p className="editorial-kicker">Cart</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Your cart is empty.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
+        <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:mt-6 sm:text-lg sm:leading-8">
           Add a few favorites, then come back here to place a local preorder.
           Little Strays delivers twice per month.
         </p>
         <Link
           href="/products"
-          className="focus-ring mt-8 inline-flex min-h-12 items-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+          className="focus-ring mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
         >
           Browse products
         </Link>
@@ -46,11 +46,11 @@ export function CartPageClient() {
   }
 
   return (
-    <section className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section className="mx-auto max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
       <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
         <div>
           <p className="editorial-kicker">Cart</p>
-          <h1 className="mt-4 text-5xl font-semibold leading-none">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
             Your cart
           </h1>
         </div>
@@ -63,12 +63,12 @@ export function CartPageClient() {
         </button>
       </div>
 
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
+      <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[1fr_360px] lg:gap-8">
         <div className="grid gap-4">
           {cartLines.map(({ product, quantity, lineTotal }) => (
             <article
               key={product.slug}
-              className="grid gap-4 rounded-sm bg-paper p-4 shadow-soft sm:grid-cols-[128px_1fr_auto] sm:items-center"
+              className="grid gap-4 rounded-sm bg-paper p-4 shadow-soft sm:grid-cols-[112px_1fr] sm:items-center lg:grid-cols-[128px_1fr_auto]"
             >
               <Link
                 href={`/products/${product.slug}`}
@@ -86,7 +86,7 @@ export function CartPageClient() {
                 </p>
                 <Link
                   href={`/products/${product.slug}`}
-                  className="focus-ring mt-2 inline-block rounded-sm text-2xl font-semibold leading-tight hover:text-clay"
+                  className="focus-ring mt-2 inline-block rounded-sm text-xl font-semibold leading-tight hover:text-clay sm:text-2xl"
                 >
                   {product.name}
                 </Link>
@@ -94,7 +94,7 @@ export function CartPageClient() {
                   {formatPrice(product.price)}
                 </p>
               </div>
-              <div className="flex items-center justify-between gap-4 sm:grid sm:justify-items-end">
+              <div className="flex flex-wrap items-center justify-between gap-4 sm:col-span-2 lg:col-span-1 lg:grid lg:justify-items-end">
                 <div className="flex items-center rounded-sm border border-clay/15 bg-white">
                   <button
                     type="button"
@@ -134,7 +134,7 @@ export function CartPageClient() {
           ))}
         </div>
 
-        <aside className="h-fit rounded-sm bg-paper p-5 shadow-soft">
+        <aside className="h-fit rounded-sm bg-paper p-4 shadow-soft sm:p-5 lg:sticky lg:top-28">
           <h2 className="text-2xl font-semibold">Preorder note</h2>
           <div className="mt-5 flex items-center justify-between border-y border-clay/15 py-4 text-sm">
             <span className="text-muted">Subtotal</span>

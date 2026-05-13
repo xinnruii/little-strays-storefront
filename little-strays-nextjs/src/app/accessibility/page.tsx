@@ -24,9 +24,9 @@ export default function AccessibilityPage() {
         </p>
       </PageIntro>
 
-      <section className="mx-auto max-w-4xl px-5 pb-20 sm:px-8">
-        <div className="rounded-sm bg-paper p-6 shadow-soft sm:p-8">
-          <h2 className="text-3xl font-semibold">Our basic standard</h2>
+      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+        <div className="rounded-sm bg-paper p-4 shadow-soft sm:p-8">
+          <h2 className="text-2xl font-semibold sm:text-3xl">Our basic standard</h2>
           <p className="mt-4 text-base leading-7 text-muted">
             We aim to follow WCAG 2.1 Level AA guidance where practical for a
             small local business website, especially for product browsing,
@@ -39,7 +39,7 @@ export default function AccessibilityPage() {
             ))}
           </ul>
 
-          <h2 className="mt-10 text-3xl font-semibold">Need help?</h2>
+          <h2 className="mt-10 text-2xl font-semibold sm:text-3xl">Need help?</h2>
           <p className="mt-4 text-base leading-7 text-muted">
             If something on this site is difficult to use, please contact us and
             include the page, what you were trying to do, and the assistive
@@ -47,7 +47,7 @@ export default function AccessibilityPage() {
           </p>
           <Link
             href="/contact"
-            className="focus-ring mt-6 inline-flex min-h-12 items-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+            className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
           >
             Contact Little Strays
           </Link>

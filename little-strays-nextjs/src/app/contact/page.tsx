@@ -24,7 +24,7 @@ export default function ContactPage() {
     <>
       <PageIntro
         title="Questions, sizing notes, and kind hellos."
-        titleClassName="text-5xl font-semibold leading-none"
+        titleClassName="text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none"
       >
         <p>
           Reach out for product fit guidance, care questions, press notes, or
@@ -32,7 +32,7 @@ export default function ContactPage() {
           for now.
         </p>
       </PageIntro>
-      <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-20 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8 lg:px-8 lg:pb-20">
         <div className="grid gap-4">
           {contactItems.map((item) => (
             <div key={item.label} className="rounded-sm bg-paper p-5 shadow-soft">
@@ -45,7 +45,7 @@ export default function ContactPage() {
           ))}
         </div>
         {/* TODO: Wire this form to a real contact submission flow. */}
-        <form className="rounded-sm bg-paper p-5 shadow-soft sm:p-8">
+        <form className="rounded-sm bg-paper p-4 shadow-soft sm:p-8">
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold">
               Name
@@ -72,7 +72,7 @@ export default function ContactPage() {
           </label>
           <button
             type="button"
-            className="focus-ring mt-6 min-h-12 rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+            className="focus-ring mt-6 min-h-12 w-full rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
           >
             Send inquiry
           </button>

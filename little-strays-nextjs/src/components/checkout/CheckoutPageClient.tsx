@@ -92,17 +92,17 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
 
   if (cartLines.length === 0) {
     return (
-      <section className="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
         <p className="editorial-kicker">Checkout</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Your cart is empty.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
+        <p className="mt-5 max-w-xl text-base leading-7 text-muted sm:mt-6 sm:text-lg sm:leading-8">
           Add a few favorites before placing a preorder.
         </p>
         <Link
           href="/products"
-          className="focus-ring mt-8 inline-flex min-h-12 items-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+          className="focus-ring mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
         >
           Browse products
         </Link>
@@ -111,10 +111,10 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
   }
 
   return (
-    <section className="mx-auto max-w-[1180px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section className="mx-auto max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
       <div className="max-w-3xl">
         <p className="editorial-kicker">Preorder checkout</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Confirm your local delivery details.
         </h1>
         <p className="mt-6 text-base leading-7 text-muted">
@@ -125,9 +125,9 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]"
+        className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[1fr_360px] lg:gap-8"
       >
-        <div className="rounded-sm bg-paper p-5 shadow-soft sm:p-8">
+        <div className="rounded-sm bg-paper p-4 shadow-soft sm:p-8">
           {error ? (
             <p className="mb-5 rounded-sm border border-clay/15 bg-linen px-4 py-3 text-sm leading-6 text-muted">
               {error}
@@ -188,7 +188,7 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
           </label>
         </div>
 
-        <aside className="h-fit rounded-sm bg-paper p-5 shadow-soft">
+        <aside className="h-fit rounded-sm bg-paper p-4 shadow-soft sm:p-5 lg:sticky lg:top-28">
           <h2 className="text-2xl font-semibold">Preorder summary</h2>
           <div className="mt-5 grid gap-4 border-y border-clay/15 py-4">
             {cartLines.map(({ product, quantity, lineTotal }) => (

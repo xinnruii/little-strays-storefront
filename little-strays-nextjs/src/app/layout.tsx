@@ -3,6 +3,7 @@ import Link from "next/link";
 import { UserRound } from "lucide-react";
 import { CartLink } from "@/components/cart/CartLink";
 import { CartProvider } from "@/components/cart/CartProvider";
+import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
@@ -50,25 +51,28 @@ export default function RootLayout({
               Skip to content
             </a>
             <header className="sticky top-0 z-50 border-b border-clay/15 bg-white/92 backdrop-blur-xl">
-              <div className="border-b border-clay/10 bg-linen px-5 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
+              <div className="border-b border-clay/10 bg-linen px-4 py-2 text-center text-xs font-medium leading-5 text-muted sm:px-8 sm:text-sm">
                 Local Los Angeles preorders are delivered twice per month.
                 National shipping is on the way.
               </div>
-              <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 py-4 sm:px-6 lg:gap-6 lg:px-6 xl:px-8">
-                <nav
-                  className="hidden items-center gap-1 justify-self-start text-sm text-muted lg:flex"
-                  aria-label="Primary navigation categories"
-                >
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
+              <div className="mx-auto grid max-w-[1720px] grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 py-3 sm:gap-3 sm:px-6 sm:py-4 lg:gap-6 lg:px-6 xl:px-8">
+                <div className="justify-self-start">
+                  <MobileNavMenu items={navItems} />
+                  <nav
+                    className="hidden items-center gap-1 text-sm text-muted lg:flex"
+                    aria-label="Primary navigation categories"
+                  >
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
                 <Link
                   href="/"
                   className="focus-ring flex shrink-0 items-center justify-self-center overflow-hidden rounded-full"
@@ -77,7 +81,7 @@ export default function RootLayout({
                   <img
                     src="/images/little-strays-logo.jpg"
                     alt=""
-                    className="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
+                    className="h-11 w-11 rounded-full object-cover sm:h-16 sm:w-16 lg:h-[72px] lg:w-[72px]"
                   />
                 </Link>
                 <div className="flex items-center gap-2 justify-self-end">
@@ -90,27 +94,13 @@ export default function RootLayout({
                   </Link>
                   <CartLink />
                 </div>
-                <nav
-                  className="col-span-3 flex items-center justify-center gap-1 overflow-x-auto text-sm text-muted lg:hidden"
-                  aria-label="Primary navigation"
-                >
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
               </div>
             </header>
             <main id="main-content" tabIndex={-1}>
               {children}
             </main>
             <footer className="border-t border-clay/15 bg-white text-ink">
-              <div className="mx-auto grid max-w-[1720px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-6 xl:px-8">
+              <div className="mx-auto grid max-w-[1720px] gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:gap-10 lg:px-6 xl:px-8">
                 <div>
                   <p className="text-3xl font-semibold">Little Strays</p>
                   <p className="mt-4 max-w-sm text-sm leading-6 text-muted">

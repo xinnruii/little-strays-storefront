@@ -20,9 +20,9 @@ export const dynamic = "force-dynamic";
 export default async function AdminOrdersPage() {
   if (!isSupabaseConfigured()) {
     return (
-      <section className="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
         <p className="editorial-kicker">Admin</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Supabase setup needed.
         </h1>
       </section>
@@ -52,9 +52,9 @@ export default async function AdminOrdersPage() {
 
   if (profile?.is_admin !== true) {
     return (
-      <section className="mx-auto max-w-[900px] px-4 py-16 sm:px-6 lg:py-24">
+      <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
         <p className="editorial-kicker">Admin</p>
-        <h1 className="mt-4 text-5xl font-semibold leading-none">
+        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
           Admin access needed.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-muted">
@@ -73,11 +73,11 @@ export default async function AdminOrdersPage() {
   const adminOrders = (orders ?? []) as OrderWithItems[];
 
   return (
-    <section className="mx-auto max-w-[1320px] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+    <section className="mx-auto max-w-[1320px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
       <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
         <div>
           <p className="editorial-kicker">Admin</p>
-          <h1 className="mt-4 text-5xl font-semibold leading-none">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
             Preorder dashboard
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-muted">
@@ -87,7 +87,7 @@ export default async function AdminOrdersPage() {
         </div>
         <a
           href="/admin/orders.csv"
-          className="focus-ring inline-flex min-h-12 items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+          className="focus-ring inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink sm:w-auto"
         >
           Download CSV
         </a>
@@ -107,9 +107,12 @@ export default async function AdminOrdersPage() {
         </div>
       ) : null}
 
-      <div className="mt-8 overflow-hidden rounded-sm bg-paper shadow-soft">
+      <div className="mt-8 rounded-sm bg-paper shadow-soft">
+        <p className="border-b border-clay/10 px-4 py-3 text-xs leading-5 text-muted lg:hidden">
+          Scroll sideways to view all order details.
+        </p>
         <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse text-left text-sm">
+          <table className="min-w-[900px] border-collapse text-left text-sm lg:min-w-full">
             <thead className="border-b border-clay/15 text-xs font-semibold uppercase tracking-[0.18em] text-clay">
               <tr>
                 <th className="px-4 py-4">Order</th>

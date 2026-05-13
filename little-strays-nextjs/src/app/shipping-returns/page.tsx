@@ -34,11 +34,11 @@ export default function ShippingReturnsPage() {
           expand as wider fulfillment becomes available.
         </p>
       </PageIntro>
-      <section className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
+      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
         <div className="grid gap-4 sm:grid-cols-2">
           {policies.map((policy) => (
-            <article key={policy.title} className="rounded-sm bg-paper p-6 shadow-soft">
-              <h2 className="text-3xl font-semibold">
+            <article key={policy.title} className="rounded-sm bg-paper p-4 shadow-soft sm:p-6">
+              <h2 className="text-2xl font-semibold sm:text-3xl">
                 {policy.title}
               </h2>
               <p className="mt-4 text-sm leading-7 text-muted">{policy.text}</p>

@@ -45,7 +45,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
 
   return (
     <>
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_0.9fr] lg:py-20">
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:gap-10 lg:px-8 lg:py-20">
         <div className="overflow-hidden rounded-sm bg-oat shadow-soft">
           <img
             src={product.image}
@@ -55,14 +55,14 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
         </div>
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="editorial-kicker">{product.category}</p>
-          <h1 className="mt-5 text-6xl font-semibold leading-[0.9] sm:text-7xl">
+          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl lg:mt-5 lg:text-7xl lg:leading-[0.9]">
             {product.name}
           </h1>
-          <div className="mt-5 flex items-center gap-4">
+          <div className="mt-5 flex flex-wrap items-center gap-4">
             <p className="text-xl font-semibold">{formatPrice(product.price)}</p>
             <AddToCartButton product={product} />
           </div>
-          <p className="mt-6 text-lg leading-8 text-muted">
+          <p className="mt-5 text-base leading-7 text-muted sm:mt-6 sm:text-lg sm:leading-8">
             {product.description}
           </p>
 
@@ -98,22 +98,22 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
-        <h2 className="text-4xl font-semibold">Also in the edit</h2>
-        <div className="mt-7 grid gap-4 sm:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+        <h2 className="text-3xl font-semibold sm:text-4xl">Also in the edit</h2>
+        <div className="mt-6 grid gap-4 sm:mt-7 sm:grid-cols-3">
           {relatedProducts.map((item) => (
             <Link
               key={item.slug}
               href={`/products/${item.slug}`}
-              className="focus-ring grid grid-cols-[84px_1fr] gap-4 rounded-sm bg-paper p-3 shadow-soft"
+              className="focus-ring grid grid-cols-[76px_1fr] gap-3 rounded-sm bg-paper p-3 shadow-soft sm:grid-cols-[84px_1fr] sm:gap-4"
             >
               <img
                 src={item.image}
                 alt={item.name}
-                className="h-24 w-20 rounded-sm object-cover"
+                className="h-20 w-[76px] rounded-sm object-cover sm:h-24 sm:w-20"
               />
               <span className="self-center">
-                <span className="block text-xl font-semibold">
+                <span className="block text-lg font-semibold leading-tight sm:text-xl">
                   {item.name}
                 </span>
                 <span className="mt-1 block text-sm text-muted">
