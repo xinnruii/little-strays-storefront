@@ -135,7 +135,7 @@ export const mockProducts: Product[] = [
   },
   {
     slug: "felt-blue-fish",
-    name: "Felt Blue Fish",
+    name: "Felt Ocean Friends",
     category: "Play",
     price: 18,
     shortDescription: "A soft felt fish toy made for batting, chasing, and carrying.",
@@ -144,17 +144,5 @@ export const mockProducts: Product[] = [
     materials: ["Wool felt", "Cotton stitching", "Soft fiber fill"],
     color: "Blue",
     image: "/images/product10.png"
-  },
-  {
-    slug: "felt-orange-squid",
-    name: "Felt Orange Squid",
-    category: "Play",
-    price: 20,
-    shortDescription: "A bright felt squid toy with floppy legs for playful paws.",
-    description:
-      "A cheerful felt squid with a light, tossable body and soft legs made for batting, pouncing, and supervised play.",
-    materials: ["Wool felt", "Cotton stitching", "Soft fiber fill"],
-    color: "Orange",
-    image: "/images/product11.png"
   }
 ];
