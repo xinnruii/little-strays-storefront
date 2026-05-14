@@ -71,7 +71,7 @@ export const mockProducts: Product[] = [
       "Soft enough for pets and handsome enough to leave out, this blanket protects upholstery while adding an easy layered texture.",
     materials: ["Cotton fleece", "Bound edge", "Low-impact dye"],
     color: "Fig stripe",
-    image: "/images/product4.png"
+    image: "/images/product4.jpg"
   },
   {
     slug: "cloud-blue-tray",
@@ -83,7 +83,7 @@ export const mockProducts: Product[] = [
       "A pair of small linen toys with a crisp interior and refillable catnip pocket, made for batting, hiding, and rediscovering.",
     materials: ["Linen remnant shell", "Crinkle insert", "Refillable catnip pocket"],
     color: "Oat and moss",
-    image: "/images/product5.png"
+    image: "/images/product5.jpg"
   },
   {
     slug: "rose-nap-mat",
@@ -95,7 +95,7 @@ export const mockProducts: Product[] = [
       "Thrown in a small-batch studio, this low bowl keeps mealtime steady and brings a tableware sensibility to the floor.",
     materials: ["Stoneware clay", "Food-safe satin glaze", "Cork foot"],
     color: "Speckled cream",
-    image: "/images/product6.png"
+    image: "/images/product6.jpg"
   },
   {
     slug: "sunny-stroll-vest",
@@ -107,7 +107,7 @@ export const mockProducts: Product[] = [
       "A sunny little walking vest with a gentle fit, simple fastening, and an easy layer for mild days outside.",
     materials: ["Lightweight cotton blend", "Soft binding", "Adjustable closure"],
     color: "Sunny cream",
-    image: "/images/product7.png"
+    image: "/images/product7.jpg"
   },
   {
     slug: "everyday-collar",
@@ -119,7 +119,7 @@ export const mockProducts: Product[] = [
       "A lightweight everyday collar with a smooth feel, tidy hardware, and an easy fit for neighborhood loops and sunny errands.",
     materials: ["Cotton webbing", "Metal hardware", "Adjustable buckle"],
     color: "Everyday neutral",
-    image: "/images/product8.png"
+    image: "/images/product8.jpg"
   },
   {
     slug: "caramel-walk-leash",
@@ -131,7 +131,7 @@ export const mockProducts: Product[] = [
       "A caramel-colored walking leash with a comfortable hand loop, polished hardware, and a simple profile for daily outings.",
     materials: ["Cotton webbing", "Metal clasp", "Reinforced stitching"],
     color: "Caramel",
-    image: "/images/product9.png"
+    image: "/images/product9.jpg"
   },
   {
     slug: "felt-blue-fish",
