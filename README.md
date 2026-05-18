@@ -2,7 +2,7 @@
 
 A boutique pet goods storefront built with Next.js, TypeScript, and modern e-commerce architecture.
 
-Live site: https://little-strays-8dls.vercel.app
+Live site: littlestrays.co
 
 > Development began Sep 2025. Site launched Nov 2025. Repository migrated to GitHub Apr 2026.
 
