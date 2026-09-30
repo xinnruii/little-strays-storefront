@@ -5,6 +5,7 @@ import { products } from "@/lib/products";
 type CheckoutItem = {
   slug?: unknown;
   quantity?: unknown;
+  size?: unknown;
 };
 
 type CheckoutPayload = {
@@ -79,8 +80,11 @@ export async function POST(request: Request) {
       const slug = getString(item.slug);
       const product = products.find((catalogItem) => catalogItem.slug === slug);
       const quantity = normalizeQuantity(item.quantity);
+      const requestedSize = getString(item.size);
 
-      if (!product || quantity <= 0) {
+      if (!product || product.price === null || quantity <= 0 ||
+        (product.sizes?.length && !product.sizes.includes(requestedSize)) ||
+        (!product.sizes?.length && requestedSize)) {
         return null;
       }
 
@@ -91,6 +95,8 @@ export async function POST(request: Request) {
         product_name: product.name,
         product_category: product.category,
         product_image: product.image,
+        product_size: requestedSize || null,
+        preorder_wait_days: product.preorder ? 14 : null,
         quantity,
         unit_price_cents: unitPriceCents,
         line_total_cents: unitPriceCents * quantity

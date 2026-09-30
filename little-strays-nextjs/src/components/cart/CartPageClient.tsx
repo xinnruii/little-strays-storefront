@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart } from "@/components/cart/CartProvider";
 import { formatPrice, products } from "@/lib/products";
@@ -18,11 +19,16 @@ export function CartPageClient() {
       return {
         ...item,
         product,
-        lineTotal: product.price * item.quantity
+        lineTotal:
+          product.price === null ? null : product.price * item.quantity
       };
     })
     .filter((item) => item !== null);
-  const subtotal = cartLines.reduce((total, item) => total + item.lineTotal, 0);
+  const hasUnpricedItems = cartLines.some((item) => item.lineTotal === null);
+  const subtotal = cartLines.reduce(
+    (total, item) => total + (item.lineTotal ?? 0),
+    0
+  );
 
   if (cartLines.length === 0) {
     return (
@@ -65,20 +71,24 @@ export function CartPageClient() {
 
       <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-[1fr_360px] lg:gap-8">
         <div className="grid gap-4">
-          {cartLines.map(({ product, quantity, lineTotal }) => (
+          {cartLines.map(({ product, quantity, lineTotal, size }) => (
             <article
-              key={product.slug}
+              key={`${product.slug}-${size ?? "standard"}`}
               className="grid gap-4 rounded-sm bg-paper p-4 shadow-soft sm:grid-cols-[112px_1fr] sm:items-center lg:grid-cols-[128px_1fr_auto]"
             >
               <Link
                 href={`/products/${product.slug}`}
                 className="focus-ring block overflow-hidden rounded-sm bg-oat"
               >
-                <img
+                <span className="relative block aspect-square">
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="aspect-square h-full w-full object-cover"
+                  fill
+                  sizes="128px"
+                  className="object-cover"
                 />
+                </span>
               </Link>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-clay">
@@ -93,6 +103,12 @@ export function CartPageClient() {
                 <p className="mt-2 text-sm font-semibold">
                   {formatPrice(product.price)}
                 </p>
+                {size ? <p className="mt-1 text-sm text-muted">Size: {size}</p> : null}
+                {product.preorder ? (
+                  <p className="mt-2 text-sm font-medium text-clay">
+                    Preorder · Estimated wait time: about two weeks
+                  </p>
+                ) : null}
               </div>
               <div className="flex flex-wrap items-center justify-between gap-4 sm:col-span-2 lg:col-span-1 lg:grid lg:justify-items-end">
                 <div className="flex items-center rounded-sm border border-clay/15 bg-white">
@@ -100,7 +116,7 @@ export function CartPageClient() {
                     type="button"
                     className="focus-ring grid h-10 w-10 place-items-center text-clay hover:bg-linen"
                     aria-label={`Decrease ${product.name} quantity`}
-                    onClick={() => updateQuantity(product.slug, quantity - 1)}
+                    onClick={() => updateQuantity(product.slug, quantity - 1, size)}
                   >
                     <Minus size={15} />
                   </button>
@@ -111,7 +127,7 @@ export function CartPageClient() {
                     type="button"
                     className="focus-ring grid h-10 w-10 place-items-center text-clay hover:bg-linen"
                     aria-label={`Increase ${product.name} quantity`}
-                    onClick={() => updateQuantity(product.slug, quantity + 1)}
+                    onClick={() => updateQuantity(product.slug, quantity + 1, size)}
                   >
                     <Plus size={15} />
                   </button>
@@ -124,7 +140,7 @@ export function CartPageClient() {
                     type="button"
                     className="focus-ring grid h-9 w-9 place-items-center rounded-full border border-clay/15 text-clay hover:bg-linen"
                     aria-label={`Remove ${product.name}`}
-                    onClick={() => removeItem(product.slug)}
+                    onClick={() => removeItem(product.slug, size)}
                   >
                     <X size={15} />
                   </button>
@@ -138,18 +154,26 @@ export function CartPageClient() {
           <h2 className="text-2xl font-semibold">Preorder note</h2>
           <div className="mt-5 flex items-center justify-between border-y border-clay/15 py-4 text-sm">
             <span className="text-muted">Subtotal</span>
-            <span className="font-semibold">{formatPrice(subtotal)}</span>
+            <span className="font-semibold">
+              {hasUnpricedItems ? "Price coming soon" : formatPrice(subtotal)}
+            </span>
           </div>
           <p className="mt-5 text-sm leading-6 text-muted">
             Checkout creates a preorder for Little Strays to review. Local
             deliveries are grouped into two monthly delivery runs.
           </p>
-          <Link
-            href="/checkout"
-            className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
-          >
-            Checkout
-          </Link>
+          {hasUnpricedItems ? (
+            <div className="mt-6 rounded-sm border border-clay/15 bg-linen px-4 py-3 text-center text-sm font-semibold text-muted">
+              Checkout opens when prices are available
+            </div>
+          ) : (
+            <Link
+              href="/checkout"
+              className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm border border-clay bg-clay px-5 text-sm font-semibold text-white shadow-soft transition hover:border-ink hover:bg-ink"
+            >
+              Checkout
+            </Link>
+          )}
           <Link
             href="/products"
             className="focus-ring mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-clay/15 bg-white px-4 text-sm font-semibold text-clay transition hover:border-clay/35 hover:bg-linen"

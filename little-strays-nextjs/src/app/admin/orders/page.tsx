@@ -67,7 +67,7 @@ export default async function AdminOrdersPage() {
   const { data: orders, error } = await supabase
     .from("orders")
     .select(
-      "id, user_id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, product_image, quantity, unit_price_cents, line_total_cents)"
+      "id, user_id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, product_image, product_size, preorder_wait_days, quantity, unit_price_cents, line_total_cents)"
     )
     .order("created_at", { ascending: false });
   const adminOrders = (orders ?? []) as OrderWithItems[];
@@ -145,8 +145,10 @@ export default async function AdminOrdersPage() {
                     <td className="px-4 py-4">
                       <div className="grid gap-2">
                         {items.map((item) => (
-                          <p key={`${order.id}-${item.product_slug}`}>
+                          <p key={`${order.id}-${item.product_slug}-${item.product_size ?? "standard"}`}>
                             {item.quantity} x {item.product_name}
+                            {item.product_size ? ` · Size ${item.product_size}` : ""}
+                            {item.preorder_wait_days ? ` · Estimated wait: about ${Math.round(item.preorder_wait_days / 7)} weeks` : ""}
                           </p>
                         ))}
                       </div>

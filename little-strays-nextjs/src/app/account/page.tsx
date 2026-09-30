@@ -85,7 +85,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   const { data: orders, error: ordersError } = await supabase
     .from("orders")
     .select(
-      "id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, product_image, quantity, unit_price_cents, line_total_cents)"
+      "id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, product_image, product_size, preorder_wait_days, quantity, unit_price_cents, line_total_cents)"
     )
     .eq("user_id", user.id)
     .order("created_at", { ascending: false })
@@ -173,7 +173,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
               name="petNames"
               defaultValue={profileValues.pet_names}
               className="focus-ring min-h-12 rounded-sm border border-clay/16 bg-linen px-4 font-normal text-ink placeholder:text-muted"
-              placeholder="May, Lucky, Joe, Pika..."
+              placeholder="Mimi, Lucky, Joe, Pika..."
             />
           </label>
           <label className="mt-5 grid gap-2 text-sm font-semibold">
@@ -254,11 +254,13 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
               <div className="mt-5 grid gap-3 border-t border-clay/15 pt-4">
                 {getOrderItems(order).map((item) => (
                   <div
-                    key={`${order.id}-${item.product_slug}`}
+                    key={`${order.id}-${item.product_slug}-${item.product_size ?? "standard"}`}
                     className="flex flex-wrap items-center justify-between gap-3 text-sm"
                   >
                     <span>
                       {item.quantity} x {item.product_name}
+                      {item.product_size ? ` · Size ${item.product_size}` : ""}
+                      {item.preorder_wait_days ? ` · Estimated wait: about ${Math.round(item.preorder_wait_days / 7)} weeks` : ""}
                     </span>
                     <span className="font-semibold">
                       {formatCents(item.line_total_cents)}

@@ -6,6 +6,8 @@ export type OrderItemSnapshot = {
   product_name: string;
   product_category: string;
   product_image: string;
+  product_size: string | null;
+  preorder_wait_days: number | null;
   quantity: number;
   unit_price_cents: number;
   line_total_cents: number;

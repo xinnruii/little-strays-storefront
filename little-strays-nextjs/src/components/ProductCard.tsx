@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { formatPrice, type Product } from "@/lib/products";
@@ -23,13 +24,22 @@ export function ProductCard({
         <div
           className={`${
             squareImage ? "aspect-square" : "aspect-[4/5]"
-          } overflow-hidden bg-oat`}
+          } relative overflow-hidden bg-oat`}
         >
-          <img
+          <Image
             src={imageSrc ?? product.image}
             alt={product.name}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition duration-700 group-hover:scale-105"
           />
+          <span className={`absolute right-3 top-3 z-10 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] shadow-soft ${
+            product.preorder
+              ? "bg-oat text-clay"
+              : "bg-[#e7d6a6]/95 text-[#665323]"
+          }`}>
+            {product.preorder ? "Preorder" : "In stock"}
+          </span>
         </div>
       </Link>
       <div className={`${minimal ? "gap-3 p-4 sm:p-5" : "gap-4 p-4 sm:p-5"} grid`}>
@@ -41,6 +51,9 @@ export function ProductCard({
             >
               <h3 className="text-lg font-semibold leading-tight sm:text-xl">
                 {product.name}
+                {product.preorder ? (
+                  <span title="Estimated wait time: about two weeks"> (Preorder)</span>
+                ) : null}
               </h3>
             </Link>
             <div className="flex items-center justify-between gap-4">
@@ -62,6 +75,9 @@ export function ProductCard({
                 </p>
                 <h3 className="mt-2 text-xl font-semibold leading-tight sm:text-2xl sm:leading-none">
                   {product.name}
+                  {product.preorder ? (
+                    <span title="Estimated wait time: about two weeks"> (Preorder)</span>
+                  ) : null}
                 </h3>
               </div>
               <ArrowUpRight

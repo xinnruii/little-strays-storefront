@@ -31,7 +31,7 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
             (catalogItem) => catalogItem.slug === item.slug
           );
 
-          if (!product) {
+          if (!product || product.price === null) {
             return null;
           }
 
@@ -67,7 +67,8 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
           deliveryNotes: formData.get("deliveryNotes"),
           items: cartLines.map((line) => ({
             slug: line.product.slug,
-            quantity: line.quantity
+            quantity: line.quantity,
+            size: line.size
           }))
         })
       });
@@ -81,8 +82,12 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
       }
 
       clearCart();
+      const includesPreorder = cartLines.some((line) => line.product.preorder);
+      const confirmationMessage = includesPreorder
+        ? "Preorder received. Preorder items have an estimated wait time of about two weeks. We will confirm your delivery run by email."
+        : "Preorder received. We will confirm your delivery run by email.";
       router.push(
-        "/account?message=Preorder%20received.%20We%20will%20confirm%20your%20delivery%20run%20by%20email."
+        `/account?message=${encodeURIComponent(confirmationMessage)}`
       );
     } catch {
       setError("Could not place preorder. Please try again.");
@@ -191,9 +196,9 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
         <aside className="h-fit rounded-sm bg-paper p-4 shadow-soft sm:p-5 lg:sticky lg:top-28">
           <h2 className="text-2xl font-semibold">Preorder summary</h2>
           <div className="mt-5 grid gap-4 border-y border-clay/15 py-4">
-            {cartLines.map(({ product, quantity, lineTotal }) => (
+            {cartLines.map(({ product, quantity, lineTotal, size }) => (
               <div
-                key={product.slug}
+                key={`${product.slug}-${size ?? "standard"}`}
                 className="grid grid-cols-[1fr_auto] gap-3 text-sm"
               >
                 <div>
@@ -201,6 +206,8 @@ export function CheckoutPageClient({ email, profile }: CheckoutPageClientProps) 
                   <p className="mt-1 text-muted">
                     {quantity} x {formatPrice(product.price)}
                   </p>
+                  {size ? <p className="mt-1 text-muted">Size: {size}</p> : null}
+                  {product.preorder ? <p className="mt-1 font-medium text-clay">Estimated wait: about two weeks</p> : null}
                 </div>
                 <p className="font-semibold">{formatPrice(lineTotal)}</p>
               </div>

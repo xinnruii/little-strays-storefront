@@ -33,7 +33,7 @@ export async function GET() {
   const { data: orders, error } = await supabase
     .from("orders")
     .select(
-      "id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, quantity, unit_price_cents, line_total_cents)"
+      "id, customer_email, customer_name, phone, delivery_address, delivery_notes, status, subtotal_cents, delivery_cadence, created_at, order_items(product_slug, product_name, product_category, product_size, preorder_wait_days, quantity, unit_price_cents, line_total_cents)"
     )
     .order("created_at", { ascending: false });
 
@@ -54,6 +54,8 @@ export async function GET() {
       "product_slug",
       "product_name",
       "product_category",
+      "product_size",
+      "preorder_wait_days",
       "quantity",
       "unit_price",
       "line_total",
@@ -81,6 +83,8 @@ export async function GET() {
         "",
         "",
         "",
+        "",
+        "",
         (order.subtotal_cents / 100).toFixed(2),
         order.delivery_cadence
       ]);
@@ -100,6 +104,8 @@ export async function GET() {
         item.product_slug,
         item.product_name,
         item.product_category,
+        item.product_size ?? "",
+        item.preorder_wait_days ?? "",
         item.quantity,
         (item.unit_price_cents / 100).toFixed(2),
         (item.line_total_cents / 100).toFixed(2),

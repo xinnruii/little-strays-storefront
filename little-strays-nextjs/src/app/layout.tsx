@@ -5,6 +5,7 @@ import { CartLink } from "@/components/cart/CartLink";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { MobileNavMenu } from "@/components/MobileNavMenu";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { products } from "@/lib/products";
 import "./globals.css";
 
 const navItems = [
@@ -13,8 +14,13 @@ const navItems = [
   { href: "/products?category=rest", label: "Rest" },
   { href: "/products?category=play", label: "Play" },
   { href: "/products?category=walk", label: "Walk" },
-  { href: "/products?category=wear", label: "Wear" }
+  { href: "/products?category=wear", label: "Wear" },
+  { href: "/brands", label: "Brands" }
 ];
+
+const brands = Array.from(
+  new Set(products.flatMap((product) => (product.brand ? [product.brand] : [])))
+).sort((first, second) => first.localeCompare(second));
 
 export const metadata: Metadata = {
   title: {
@@ -62,15 +68,46 @@ export default function RootLayout({
                     className="hidden items-center gap-1 text-sm text-muted lg:flex"
                     aria-label="Primary navigation categories"
                   >
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
+                    {navItems.map((item) =>
+                      item.label === "Brands" ? (
+                        <div key={item.href} className="group relative">
+                          <Link
+                            href={item.href}
+                            className="focus-ring block whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
+                            aria-haspopup="true"
+                          >
+                            {item.label}
+                          </Link>
+                          <div className="invisible absolute left-0 top-full z-50 w-[420px] translate-y-2 pt-3 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                            <div className="grid grid-cols-2 gap-1 rounded-sm border border-clay/15 bg-white p-3 shadow-soft">
+                              {brands.map((brand) => (
+                                <Link
+                                  key={brand}
+                                  href={`/products?brand=${encodeURIComponent(brand)}`}
+                                  className="focus-ring rounded-sm px-3 py-2 text-sm text-muted transition hover:bg-linen hover:text-clay"
+                                >
+                                  {brand}
+                                </Link>
+                              ))}
+                              <Link
+                                href="/brands"
+                                className="focus-ring col-span-2 mt-1 rounded-sm border-t border-clay/15 px-3 pt-3 text-sm font-semibold text-clay"
+                              >
+                                View all brands →
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="focus-ring whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
+                        >
+                          {item.label}
+                        </Link>
+                      )
+                    )}
                   </nav>
                 </div>
                 <Link

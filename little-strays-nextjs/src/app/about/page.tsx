@@ -29,7 +29,7 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-5 text-base leading-7 text-muted sm:gap-6 sm:leading-8">
             <p>
-              Little Strays began with four rescues — May, Lucky, Joe, and Pika
+              Little Strays began with four rescues — Mimi, Lucky, Joe, and Pika
               — who slowly changed the way we moved through everyday life. We
               started noticing the small things: softer fabrics, gentler
               ingredients, pieces that felt safe enough to live alongside the
