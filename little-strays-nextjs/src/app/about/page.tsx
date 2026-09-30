@@ -15,9 +15,9 @@ export default function AboutPage() {
             className="block aspect-square w-full object-cover"
           />
         </div>
-        <div className="mx-auto grid w-full content-center gap-6 px-4 py-10 sm:px-6 lg:-translate-y-6 lg:max-w-3xl lg:gap-8 lg:px-10 lg:py-12 xl:px-12">
+        <div className="mx-auto grid w-full content-center gap-6 px-2 py-10 sm:px-6 lg:-translate-y-6 lg:max-w-3xl lg:gap-8 lg:px-10 lg:py-12 xl:px-12">
           <div>
-            <h1 className="text-center text-[clamp(0.68rem,3.1vw,1.5rem)] font-semibold leading-tight">
+            <h1 className="text-center text-[clamp(0.95rem,4vw,1.5rem)] font-semibold leading-tight tracking-tight">
               <span className="block whitespace-nowrap">
                 Animal-owned first, women-owned second.
               </span>
@@ -26,7 +26,7 @@ export default function AboutPage() {
               </span>
             </h1>
           </div>
-          <div className="grid gap-5 text-base leading-7 text-muted sm:gap-6 sm:leading-8">
+          <div className="grid gap-5 text-sm leading-6 text-muted sm:gap-6 sm:text-base sm:leading-8">
             <p>
               Little Strays began with four rescues — Mimi, Lucky, Joe, and Pika
               — who slowly changed the way we moved through everyday life. We
