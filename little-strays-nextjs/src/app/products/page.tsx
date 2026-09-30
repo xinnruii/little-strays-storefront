@@ -66,9 +66,8 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
   return (
     <section className="mx-auto max-w-[1720px] px-4 py-10 sm:px-6 lg:px-6 lg:py-20 xl:px-8">
       <div className="mb-6 flex items-end justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-semibold sm:text-4xl">{pageHeading}</h1>
-          <p className="mt-2 text-sm text-muted">{categoryProducts.length} {categoryProducts.length === 1 ? "product" : "products"}</p>
+        <div className="w-full">
+          <h1 className="text-center text-3xl font-semibold sm:text-4xl">{pageHeading}</h1>
         </div>
       </div>
       <div className="mb-8">

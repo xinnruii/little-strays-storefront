@@ -13,8 +13,7 @@ export default function BrandsPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-      <p className="editorial-kicker">Our collection</p>
-      <h1 className="mt-4 text-4xl font-semibold sm:text-5xl">Brands</h1>
+      <h1 className="text-center text-3xl font-semibold sm:text-4xl">Brands</h1>
       <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {brands.map((brand) => (
           <Link

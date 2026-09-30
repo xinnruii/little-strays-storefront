@@ -15,7 +15,15 @@ const navItems = [
   { href: "/products?category=play", label: "Play" },
   { href: "/products?category=walk", label: "Walk" },
   { href: "/products?category=wear", label: "Wear" },
-  { href: "/brands", label: "Brands" }
+  { href: "/brands", label: "Brands" },
+  {
+    href: "/services",
+    label: "Services",
+    children: [
+      { href: "/services/pet-photography", label: "Pet Photography" },
+      { href: "/services/customization", label: "Customization" }
+    ]
+  }
 ];
 
 const brands = Array.from(
@@ -98,6 +106,29 @@ export default function RootLayout({
                             </div>
                           </div>
                         </div>
+                      ) : item.label === "Services" ? (
+                        <div key={item.href} className="group relative">
+                          <Link
+                            href={item.href}
+                            className="focus-ring block whitespace-nowrap rounded-sm px-3 py-2 hover:text-clay"
+                            aria-haspopup="true"
+                          >
+                            {item.label}
+                          </Link>
+                          <div className="invisible absolute left-0 top-full z-50 w-56 translate-y-2 pt-3 opacity-0 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                            <div className="grid gap-1 rounded-sm border border-clay/15 bg-white p-3 shadow-soft">
+                              {item.children?.map((service) => (
+                                <Link
+                                  key={service.href}
+                                  href={service.href}
+                                  className="focus-ring rounded-sm px-3 py-2 text-sm text-muted transition hover:bg-linen hover:text-clay"
+                                >
+                                  {service.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       ) : (
                         <Link
                           key={item.href}
@@ -137,7 +168,7 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="border-t border-clay/15 bg-white text-ink">
-              <div className="mx-auto grid max-w-[1720px] gap-8 px-4 py-10 sm:px-6 md:grid-cols-[1.2fr_0.8fr_0.8fr] md:gap-10 lg:px-6 xl:px-8">
+              <div className="mx-auto grid max-w-[1720px] gap-8 px-4 py-10 sm:grid-cols-2 sm:gap-10 sm:px-6 lg:grid-cols-[1.2fr_0.7fr_0.7fr_0.8fr] lg:px-6 xl:px-8">
                 <div>
                   <p className="text-3xl font-semibold">Little Strays</p>
                   <p className="mt-4 max-w-sm text-sm leading-6 text-muted">
@@ -146,7 +177,7 @@ export default function RootLayout({
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
-                    Shop
+                    Little Strays
                   </p>
                   <div className="mt-4 grid gap-3 text-sm text-muted">
                     <Link href="/products" className="focus-ring rounded-sm hover:text-clay">
@@ -161,6 +192,13 @@ export default function RootLayout({
                     >
                       Meet the Team
                     </Link>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-clay">
+                    Help
+                  </p>
+                  <div className="mt-4 grid gap-3 text-sm text-muted">
                     <Link href="/contact" className="focus-ring rounded-sm hover:text-clay">
                       Contact
                     </Link>

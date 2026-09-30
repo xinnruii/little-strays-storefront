@@ -15,8 +15,7 @@ export default async function CheckoutPage() {
   if (!isSupabaseConfigured()) {
     return (
       <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
-        <p className="editorial-kicker">Checkout</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+        <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
           Supabase setup needed.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-muted">

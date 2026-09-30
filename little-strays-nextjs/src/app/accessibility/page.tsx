@@ -17,7 +17,7 @@ const commitments = [
 export default function AccessibilityPage() {
   return (
     <>
-      <PageIntro kicker="Accessibility" title="Access matters here.">
+      <PageIntro title="Access matters here.">
         <p>
           Little Strays is working to make this site usable for customers with
           different vision, mobility, hearing, and cognitive needs.

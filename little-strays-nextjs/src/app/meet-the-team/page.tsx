@@ -38,8 +38,8 @@ const teamMembers = [
 export default function MeetTheTeamPage() {
   return (
     <section className="mx-auto max-w-[1720px] px-4 py-10 sm:px-6 lg:px-6 lg:py-20 xl:px-8">
-      <div className="mb-8 max-w-3xl sm:mb-10 lg:mb-12">
-        <p className="editorial-kicker">Meet the Team</p>
+      <div className="mx-auto mb-8 max-w-3xl sm:mb-10 lg:mb-12">
+        <h1 className="text-center text-3xl font-semibold sm:text-4xl">Meet the Team</h1>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">

@@ -67,7 +67,7 @@ export default async function ProductDetailPage({ params }: ProductDetailProps) 
               </Link>
             </p>
           ) : null}
-          <h1 className="mt-4 text-2xl font-semibold leading-tight lg:mt-5">
+          <h1 className="mt-4 text-center text-2xl font-semibold leading-tight lg:mt-5">
             {product.name}
             {product.preorder ? (
               <span

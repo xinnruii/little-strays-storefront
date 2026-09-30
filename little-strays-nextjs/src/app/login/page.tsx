@@ -27,8 +27,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   return (
     <section className="mx-auto grid max-w-[1100px] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-8 lg:py-24">
       <div>
-        <p className="editorial-kicker">Account</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">Log in</h1>
+        <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">Log in</h1>
         <p className="mt-6 max-w-md text-base leading-7 text-muted">
           Sign in to manage your Little Strays profile, delivery notes, and pet
           details.

@@ -30,8 +30,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   if (!isSupabaseConfigured()) {
     return (
       <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
-        <p className="editorial-kicker">Account</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+        <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
           Supabase setup needed.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-muted">
@@ -96,8 +95,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
     <section className="mx-auto max-w-[1180px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
       <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10">
         <div>
-          <p className="editorial-kicker">Account</p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+          <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
             Your profile
           </h1>
           <p className="mt-6 max-w-md text-base leading-7 text-muted">
@@ -206,8 +204,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
       <div className="mt-12 lg:mt-14">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <p className="editorial-kicker">Order history</p>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
               Your preorders
             </h2>
           </div>

@@ -15,10 +15,9 @@ export default function AboutPage() {
             className="block aspect-square w-full object-cover"
           />
         </div>
-        <div className="grid content-start gap-6 px-4 pt-8 sm:px-6 lg:max-w-2xl lg:gap-8 lg:px-0 lg:pr-8 lg:pt-20">
+        <div className="mx-auto grid w-full content-center gap-6 px-4 py-10 sm:px-6 lg:-translate-y-6 lg:max-w-3xl lg:gap-8 lg:px-10 lg:py-12 xl:px-12">
           <div>
-            <p className="editorial-kicker">Our Story</p>
-            <h1 className="text-[clamp(1.1rem,2.2vw,1.9rem)] font-semibold leading-tight">
+            <h1 className="text-center text-[clamp(0.68rem,3.1vw,1.5rem)] font-semibold leading-tight">
               <span className="block whitespace-nowrap">
                 Animal-owned first, women-owned second.
               </span>

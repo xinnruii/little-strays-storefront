@@ -21,8 +21,7 @@ export default async function AdminOrdersPage() {
   if (!isSupabaseConfigured()) {
     return (
       <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
-        <p className="editorial-kicker">Admin</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+        <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
           Supabase setup needed.
         </h1>
       </section>
@@ -53,8 +52,7 @@ export default async function AdminOrdersPage() {
   if (profile?.is_admin !== true) {
     return (
       <section className="mx-auto max-w-[900px] px-4 py-12 sm:px-6 lg:py-24">
-        <p className="editorial-kicker">Admin</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+        <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
           Admin access needed.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-muted">
@@ -76,8 +74,7 @@ export default async function AdminOrdersPage() {
     <section className="mx-auto max-w-[1320px] px-4 py-12 sm:px-6 lg:px-8 lg:py-24">
       <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
         <div>
-          <p className="editorial-kicker">Admin</p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none">
+          <h1 className="text-center text-3xl font-semibold leading-tight sm:text-4xl">
             Preorder dashboard
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-7 text-muted">

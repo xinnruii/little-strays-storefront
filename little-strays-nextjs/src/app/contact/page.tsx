@@ -24,7 +24,6 @@ export default function ContactPage() {
     <>
       <PageIntro
         title="Questions, sizing notes, and kind hellos."
-        titleClassName="text-4xl font-semibold leading-tight sm:text-5xl sm:leading-none"
       >
         <p>
           Reach out for product fit guidance, care questions, press notes, or

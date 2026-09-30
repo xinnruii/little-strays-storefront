@@ -27,7 +27,7 @@ const policies = [
 export default function ShippingReturnsPage() {
   return (
     <>
-      <PageIntro kicker="Policy" title="Shipping and returns without the small print fog.">
+      <PageIntro title="Shipping and returns without the small print fog.">
         <p>
           Little Strays is currently delivering Los Angeles preorders twice per
           month. National shipping is coming soon, and return details will
